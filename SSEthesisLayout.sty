@@ -133,8 +133,15 @@
 % \makeoddhead{ssethesis}{}{\small\lsstyle\MakeUppercase{\leftmark}}{\small\MakeUppercase\lsstyle\thepage}
 
 % Alternative 2: Sans-serif font
-\makeevenhead{ssethesis}{\normalfont\lsstyle\sffamily\thepage}{\normalfont\lsstyle\sffamily\MakeUppercase{\thetitle}}{}
-\makeoddhead{ssethesis}{}{\normalfont\lsstyle\sffamily\MakeUppercase{\leftmark}}{\normalfont\lsstyle\sffamily\thepage}
+\makeevenhead{ssethesis}
+  {\footnotesize\lsstyle\sffamily\thepage}
+  {\footnotesize\lsstyle\sffamily\MakeUppercase{\thetitle}}
+  {}
+
+\makeoddhead{ssethesis}
+  {}
+  {\footnotesize\lsstyle\sffamily\MakeUppercase{\leftmark}}
+  {\footnotesize\lsstyle\sffamily\thepage}
 
 \makeevenfoot{ssethesis}{}{}{}
 \makeoddfoot{ssethesis}{}{}{}
