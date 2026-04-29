@@ -63,9 +63,9 @@
 \end{tabularx}
 \vfill
 \thetitle : \thesubtitle\par
-\textcopyright~SSE and \theauthor, 2026\par\bigskip
-ISBN XXX-XX-XXXX-XXX-X (printed)\par
-ISBN XXX-XX-XXXX-XXX-X (pdf)\par\bigskip
+\textcopyright~\theauthor, 2026\par\bigskip
+ISBN 978-91-7731-405-9 (printed)\par
+ISBN 978-91-7731-406-6 (pdf)\par\bigskip
 This book was typeset by the author using \LaTeX.\par\bigskip
 \emph{Front cover photo}: \textcopyright~Photographer~Name\par\bigskip
 \emph{Back cover photo}: ARCTISTIC/Photo:~Photographer~Name\par\bigskip
@@ -78,7 +78,13 @@ This book was typeset by the author using \LaTeX.\par\bigskip
 \thispagestyle{empty}
 \vspace*{45mm}
 \begin{center}
-\textit{To me}
+\textit{To}
+
+\textit{My Family}
+
+\textit{My Beloved Friends}
+
+\textit{Both that I have met and have not yet met}
 \end{center}
 
 \cleardoublepage
@@ -89,7 +95,7 @@ This volume is the result of a research project carried out at the Department of
 
 This volume is submitted as a doctoral thesis at SSE. In keeping with the policies of SSE, the author has been entirely free to conduct and present his research in the manner of his choosing as an expression of his own ideas.
 
-SSE is grateful for the financial support provided by \textcolor{red}{Torsten Söderbergs Stiftelse, Hans Werthénfonden}, which has made it possible to carry out the project.
+SSE is grateful for the financial support provided by Torsten Söderbergs Stiftelse and Hans Werthénfonden, which has made it possible to carry out the project.
 
 \vspace{2\onelineskip}
 
@@ -105,13 +111,13 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 % Acknowledgements
 \cleardoublepage
 \chapter*{Acknowledgements}
-\markboth{}{}
+\markboth{Acknowledgements}{}
 \thispagestyle{empty}
 %\pagestyle{empty}
 
 \input{chapters/acknowledgements}\par\bigskip
 \begin{center}
-\emph{Stockholm, September 10, 2018}\par\smallskip
+\emph{Stockholm, April 30, 2026}\par\smallskip
 \emph{\theauthor}
 \end{center}
 \cleardoublepage
@@ -124,17 +130,75 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INTRODUCTION
-\begin{refsection}
+
 \chapter*{Preface}\addcontentsline{toc}{chapter}{Preface}\markboth{Preface}{}
 \input{chapters/preface}
 \clearpage
-\nobibintoc\SSEprintbibliography{subbibliography}\bibintoc
-\end{refsection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 1
+\chapter[Introduction]{Introduction}\label{chap:introduction} % 
+\input{chapters/chapter1/main} % include puts clearpages around automatically, input put right after
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 2
+\chapter[Theoretical Background and Framework]{Theoretical Background and Framework}\label{chap:theoryframework} % 
+\input{chapters/chapter2/main} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 3
+\chapter[Data and Methodology]{Data and Methodology}\label{chap:datamethod} % 
+\input{chapters/chapter3/main} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 4
+\chapter[Empirical Studies]{Empirical Studies}\label{chap:study} % 
+\input{chapters/chapter4/main} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 5
+\chapter[Discussion and Future Directions]{Discussion and Future Directions}\label{chap:discussion} % 
+\input{chapters/chapter5/main} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EPILOGUE
+\chapter*{Epilogue}\addcontentsline{toc}{chapter}{Epilogue}\markboth{Epilogue}{}
+\input{chapters/epilogue}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 2
+
+	%\chapter{Title of Chapter~2}
+	%{\large\centering\theauthor\par\vspace*{2\onelineskip}} % Author
+	%\begin{abstract}\input{chapters/chapter2/abstract}\end{abstract}%
+	%\blindfootnote{Who am I grateful to?}%
+	%\include{chapters/chapter2/mainmatter} % include puts clearpages around automatically
+	%\begin{subappendices}
+		% "fake" new chapter to get the unnumbered chapter style for appendix (also does a cleardoublepage)
+		%\SSEfakechapter{\thechapter.A}{Appendix}%
+		%\input{chapters/chapter2/appendix} % need to use input to not clearpage
+		%\SSEfakechapter{\thechapter.B}{References}\SSEprintbibliography{none}
+	%\end{subappendices}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FULL THESIS REFERENCES
+\cleardoublepage
+\chapter*{References}\addcontentsline{toc}{chapter}{References}
+\markboth{References}{}
+\SSEprintbibliography{none}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FULL THESIS REFERENCES
+
+
+\end{document}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CHAPTER 1
 \begin{refsection}
-	\chapter[Title of Chapter~1]{Title of Chapter~1: the subtitle is extremely long whereby the title must be shortened to fit in the Table of Contents and header} % The optional argument provides a shortened version of the title for the ToC and header
+	\chapter[Introduction]{Title of Chapter~1: the subtitle is extremely long whereby the title must be shortened to fit in the Table of Contents and header}\label{chap:introduction} % The optional argument provides a shortened version of the title for the ToC and header
 	% \chaptermark{Header title of Chapter~1} % Shorter version of the title for the header only
 	{\large\centering\theauthor\par\vspace*{2\onelineskip}} % Author
 	\begin{abstract}\input{chapters/chapter1/abstract}\end{abstract}%
@@ -147,22 +211,4 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 		\SSEfakechapter{\thechapter.B}{References}\SSEprintbibliography{none}
 	\end{subappendices}
 \end{refsection}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CHAPTER 2
-\begin{refsection}
-	\chapter{Title of Chapter~2}
-	{\large\centering\theauthor\par\vspace*{2\onelineskip}} % Author
-	\begin{abstract}\input{chapters/chapter2/abstract}\end{abstract}%
-	\blindfootnote{Who am I grateful to?}%
-	\include{chapters/chapter2/mainmatter} % include puts clearpages around automatically
-	\begin{subappendices}
-		% "fake" new chapter to get the unnumbered chapter style for appendix (also does a cleardoublepage)
-		\SSEfakechapter{\thechapter.A}{Appendix}%
-		\input{chapters/chapter2/appendix} % need to use input to not clearpage
-		\SSEfakechapter{\thechapter.B}{References}\SSEprintbibliography{none}
-	\end{subappendices}
-	\end{refsection}
-
-\end{document}
 
