@@ -8,6 +8,7 @@
 % "draft" for draft mode (quicker build)
 % "showtrims" to show trimmed sides before printing
 \usepackage{SSEThesisPreamble}
+\usepackage{pdfpages}
 
 \title{Modeling Retail Performance Through Customer Behavior}
 \newcommand\thesubtitle{Evidence from Multiformat, Multichannel, and Platform Settings}
@@ -19,7 +20,7 @@
 % All included chapters need to have their graphics paths specified manually here
 % this is for input to work and to find the right figures
 % Graphics paths for all documents
-\graphicspath{{./chapters/chapter1/figures/}{./chapters/chapter2/figures/}}
+\graphicspath{{./chapters/figures/}{./chapters/chapter2/figures/}}
 \makeatletter
 \providecommand*{\input@path}{}
 \g@addto@macro\input@path{{./chapters/chapter1/figures/}{./chapters/chapter2/figures/}}%
@@ -67,10 +68,10 @@
 ISBN 978-91-7731-405-9 (printed)\par
 ISBN 978-91-7731-406-6 (pdf)\par\bigskip
 This book was typeset by the author using \LaTeX.\par\bigskip
-\emph{Front cover photo}: \textcopyright~Photographer~Name\par\bigskip
-\emph{Back cover photo}: ARCTISTIC/Photo:~Photographer~Name\par\bigskip
+\emph{Front cover photo}: \textcopyright~Neddie~\&~Riety,~2026\par\bigskip
+\emph{Back cover photo}:~Juliana~Wolf~Garcindo,~2019\par\bigskip
 \emph{Printed by}: Universitetsservice US-AB, Stockholm, 2026\par\bigskip
-\emph{Keywords:} keywords.
+\emph{Keywords:} Store formats, Multichannel, Grocery Retailing, Music Streaming, Digital Platform, Pricing, Discounts, Customer Category Purchase, Private labels, Online Adoption, Retailer revenue, Playlist Followers,  Pandemic
 \end{flushleft}
 
 % Dedication
@@ -82,9 +83,9 @@ This book was typeset by the author using \LaTeX.\par\bigskip
 
 \textit{My Family}
 
-\textit{My Beloved Friends}
+\textit{And My Beloved Friends,}
 
-\textit{Both that I have met and have not yet met}
+\textit{Both Those I Have Met and Those I Have Yet to Meet}
 \end{center}
 
 \cleardoublepage
@@ -95,7 +96,7 @@ This volume is the result of a research project carried out at the Department of
 
 This volume is submitted as a doctoral thesis at SSE. In keeping with the policies of SSE, the author has been entirely free to conduct and present his research in the manner of his choosing as an expression of his own ideas.
 
-SSE is grateful for the financial support provided by Torsten Söderbergs Stiftelse and Hans Werthénfonden, which has made it possible to carry out the project.
+SSE is grateful for the financial support provided by Torsten Söderbergs Stiftelse, Ann-Margret och Bengt Fabian Svartz Stiftelse, and Hans Werthénfonden, which has made it possible to carry out the project.
 
 \vspace{2\onelineskip}
 
@@ -105,6 +106,14 @@ SSE is grateful for the financial support provided by Torsten Söderbergs Stifte
 Director of Research & Professor and Head of the\\
 Stockholm School of Economics & Department of Marketing and Strategy\\
 \end{tabular}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preface
+
+\chapter*{Preface}
+\markboth{Preface}{}
+\input{chapters/preface}
 \cleardoublepage
 
 %%%%%%%%%%%%%%%%%%
@@ -117,10 +126,11 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 
 \input{chapters/acknowledgements}\par\bigskip
 \begin{center}
-\emph{Stockholm, April 30, 2026}\par\smallskip
+\emph{Stockholm, April, 2026}\par\smallskip
 \emph{\theauthor}
 \end{center}
 \cleardoublepage
+
 
 %%%%%%%%%%%%%%%%%%%
 % Table of contents
@@ -128,12 +138,6 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 \cleardoublepage%
 \mainmatter% change numbering to arabic
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% INTRODUCTION
-
-\chapter*{Preface}\addcontentsline{toc}{chapter}{Preface}\markboth{Preface}{}
-\input{chapters/preface}
-\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CHAPTER 1
 \chapter[Introduction]{Introduction}\label{chap:introduction} % 
@@ -161,27 +165,19 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EPILOGUE
-\chapter*{Epilogue}\addcontentsline{toc}{chapter}{Epilogue}\markboth{Epilogue}{}
+\chapter*{Epilogue}
+\addcontentsline{toc}{chapter}{Epilogue}
+\markboth{Epilogue}{}
+
+% --- Local figure numbering for Epilogue (safe, no appendix interference)
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{E\arabic{figure}}
+
 \input{chapters/epilogue}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CHAPTER 2
+% --- Restore original figure numbering (important for appendix later)
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
-	%\chapter{Title of Chapter~2}
-	%{\large\centering\theauthor\par\vspace*{2\onelineskip}} % Author
-	%\begin{abstract}\input{chapters/chapter2/abstract}\end{abstract}%
-	%\blindfootnote{Who am I grateful to?}%
-	%\include{chapters/chapter2/mainmatter} % include puts clearpages around automatically
-	%\begin{subappendices}
-		% "fake" new chapter to get the unnumbered chapter style for appendix (also does a cleardoublepage)
-		%\SSEfakechapter{\thechapter.A}{Appendix}%
-		%\input{chapters/chapter2/appendix} % need to use input to not clearpage
-		%\SSEfakechapter{\thechapter.B}{References}\SSEprintbibliography{none}
-	%\end{subappendices}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FULL THESIS REFERENCES
 \cleardoublepage
 \chapter*{References}\addcontentsline{toc}{chapter}{References}
@@ -189,8 +185,44 @@ Stockholm School of Economics & Department of Marketing and Strategy\\
 \SSEprintbibliography{none}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FULL THESIS REFERENCES
+% APPENDIX
+\appendix
 
+\chapter{From Price to Profit: Multi-Tier Private Label Response Across Retail Formats}
+\label{app:article1}
+\markboth{Article 1}{}
+
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{ssethesis}},
+]{chapters/article/article1.pdf}
+
+\chapter{Regular Prices vs. Discounts: How Pricing Strategies Perform Across Store Formats}
+\label{app:article2}
+\markboth{Article 2}{}
+
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{ssethesis}},
+]{chapters/article/article2.pdf}
+
+\chapter{The Long-Term Effects of Online Channel Adoption in Grocery Retailing}
+\label{app:article3}
+\markboth{Article 3}{}
+
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{ssethesis}},
+]{chapters/article/article3.pdf}
+
+\chapter{How Did COVID-19 Affect Playlist Followers on Spotify?}
+\label{app:article4}
+\markboth{Article 4}{}
+
+\includepdf[
+  pages=-,
+  pagecommand={\thispagestyle{ssethesis}},
+]{chapters/article/article4.pdf}
 
 \end{document}
 
